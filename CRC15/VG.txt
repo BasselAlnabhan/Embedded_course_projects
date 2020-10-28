@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdint.h>
+​
+#define POLYNOMIAL 0xC599
+​
+uint16_t getCRC15(uint8_t *data, uint8_t size)
+{
+    uint16_t remainder = 0;
+​
+    // Implement the algorithm
+​
+    return remainder;
+}
+​
+int main()
+{
+    uint8_t message[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', 0, 0};
+​
+    uint16_t crc = getCRC15(message, sizeof(message));
+    printf("The CRC of the message is = 0x%X\n", crc);
+​
+    // Add the CRC to the end of the message
+​
+    if (0 == getCRC15(message, sizeof(message)))
+    {
+        printf("The data is OK\n");
+    }
+    else
+    {
+        printf("The data is not OK\n");
+    }
+​
+    message[1] = 'a';
+​
+    if (0 == getCRC15(message, sizeof(message)))
+    {
+        printf("The data is OK\n");
+    }
+    else
+    {
+        printf("The data is not OK\n");
+    }
+}
