@@ -1,11 +1,11 @@
-# Stack:
+## Stack:
 https://www.programiz.com/dsa/stack
 
-# Queue:
+## Queue:
 https://www.programiz.com/dsa/queue
 
-# Linked list:
+## Linked list:
 https://www.programiz.com/dsa/linked-list
 
-# Binary tree:
+## Binary tree:
 https://www.programiz.com/dsa/binary-tree
