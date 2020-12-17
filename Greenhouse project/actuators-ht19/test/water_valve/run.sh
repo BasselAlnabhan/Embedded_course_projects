@@ -1,0 +1,2 @@
+clear && mkdir -p build && rm -rf ./build/*
+gcc ./lib/water_valve/water_valve.cpp ./test/water_valve/water_valve.cpp -I./lib/water_valve -I./include -I./test -I./lib/bsp -lunity -o ./build/test && ./build/test

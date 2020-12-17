@@ -1,0 +1,34 @@
+### Signals for sensors
+
+## Temperature and humidity
+1.  <get_temperature_min_cal_value>     2.  unsigned int    3.  7 bits  4.  0 - 50 grader celsius   5.  get minimum temperature calibration value from CAN      6.  Yes     7.  No      8.  HMI         9.  Sensor              10. 1000ms
+    <get_temperature_max_cal_value>         unsigned int        7 bits      0 - 50 grader celsius       get maximum temperature calibration value from CAN          Yes         No          HMI             Sensor                  1000ms
+    <get_humidity_min_cal_value>            unsigned int        7 bits      0 - 100                     get minimum humidity calibration value from CAN             Yes         No          HMI             Sensor                  1000ms
+    <get_humidity_max_cal_value>            unsigned int        7 bits      0 - 100                     get maximum humidity calibration value from CAN             Yes         No          HMI             Sensor                  1000ms
+    <set_temperature_value>                 unsigned int        7 bits      0 - 50 grader celsius       send temperature value to CAN                               No          No          Sensor          HMI/Actuators/Comm      1000ms
+    <set_humidity_level>                    unsigned int        7 bits      0 - 100                     send humidity value to CAN                                  No          No          Sensor          HMI/Actuators/Comm      1000ms
+    <set_ambient_sensor_status>             unsigned int        2 bits      0 - 3                       send temperature and humidity sensor status to CAN          No          No          Sensor          HMI/Actuators/Comm      1000ms
+
+## Flow meter
+1.  <get_flow_meter_min_cal_value>      2.  unsigned int    3.  9 bits  4.  17 - 500 mL/s           5.  get minimum flow meter calibration value from CAN       6.  Yes     7.  No      8.  HMI         9.  Sensor              10. 1000ms
+    <get_flow_meter_max_cal_value>          unsigned int        9 bits      17 - 500 mL/s               get maximum flow meter calibration value from CAN           Yes         No          HMI             Sensor                  1000ms
+    <set_flow__meter_value>                 unsigned int        9 bits      17 - 500 mL/s               send flow meter value to CAN                                No          No          Sensor          HMI/Actuators/Comm      1000ms
+    <set_flow_meter_sensor_status>          unsigned int        2 bits      0 - 3                       send flow meter sensor status to CAN                        No          No          Sensor          HMI/Actuators/Comm      1000ms
+
+## Light intensity
+1.  <get_ldr_min_cal_value>             2.  unsigned int    3.  7 bits  4.  0 - 100                 5.  get minimum ldr calibration value from CAN              6.  Yes     7.  No      8.  HMI         9.  Sensor              10. 1000ms
+    <get_ldr_max_cal_value>                 unsigned int        7 bits      0 - 100                     get maximum ldr calibration value from CAN                  Yes         No          HMI             Sensor                  1000ms
+    <set_ldr_value>                         unsigned int        7 bits      0 - 100                     send ldr value to CAN                                       No          No          Sensor          HMI/Actuators/Comm      1000ms
+    <set_ldr_sensor_status>                 unsigned int        2 bits      0 - 3                       send ldr sensor status to CAN                               No          No          Sensor          HMI/Actuators/Comm      1000ms
+
+## Soil moisture
+1.  <get_soil_moisture_min_cal_value>   2.  unsigned int    3.  7 bits  4.  0 - 100                 5.  get minimum soil moisture calibration value from CAN    6.  Yes     7.  No      8.  HMI         9.  Sensor              10. 1000ms
+    <get_soil_moisture_max_cal_value>       unsigned int        7 bits      0 - 100                     get maximum soil moisture calibration value from CAN        Yes         No          HMI             Sensor                  1000ms
+    <set_soil_moisture_value>               unsigned int        7 bits      0 - 100                     send soil moisture value to CAN                             No          No          Sensor          HMI/Actuators/Comm      1000ms
+    <set_soil_moisture_sensor_status>       unsigned int        2 bits      0 - 3                       send soil moisture sensor status to CAN                     No          No          Sensor          HMI/Actuators/Comm      1000ms
+
+## Water level
+1.  <get_water_level_min_cal_value>     2.  unsigned int    3.  7 bits  4.  0 - 100                 5.  get minimum water level calibration value from CAN      6.  Yes     7.  No      8.  HMI         9.  Sensor              10. 1000ms
+    <get_water_level_max_cal_value>         unsigned int        7 bits      0 - 100                     get maximum water level calibration value from CAN          Yes         No          HMI             Sensor                  1000ms
+    <set_water_level_value>                 unsigned int        7 bits      0 - 100                     send water level value to CAN                               No          No          Sensor          HMI/Actuators/Comm      1000ms
+    <set_water_level_sensor_status>         unsigned int        2 bits      0 - 3                       send water level sensor status to CAN                       No          No          Sensor          HMI/Actuators/Comm      1000ms

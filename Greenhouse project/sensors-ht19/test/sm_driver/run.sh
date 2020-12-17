@@ -1,0 +1,2 @@
+rm -rf build && clear && mkdir -p build
+gcc ./test/sm_driver/sm_driver_test.cpp ./lib/sm_driver/sm_driver.cpp -I./test/sm_driver -I./lib/sm_driver -I./lib/bsp -I./include -lunity -o ./build/sm_driver_test && ./build/sm_driver_test

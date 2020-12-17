@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>Space for diagram notes</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>130</x>
+      <y>490</y>
+      <w>260</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Air Fan Driver
+--
+~ON = 1: uint8_t
+~OFF = 0: uint8_t
+--------------------------------------------------------------
+-initialize(): uint8_t
++ configure()
++ get_fan_status(): uint8_t
+- set_fan_state(): uint8_t
+--
+Controls the temp/humidity by turning 
+the fan on/off depending the ambient 
+temp/humidity from the sensors
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>780</x>
+      <y>280</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Window Ventilation Driver
+--
+~OPEN = 1: uint8_t
+~CLOSED = 0: uint8_t
+--------------------------------------------------------------
+-initialize(): uint8_t
++ configure()
++ get_window_vent_status(): int
+- set_window_vent_state(): int
+--
+Controls the temp/humidity by
+opening/closing the window 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>0</x>
+      <y>230</y>
+      <w>240</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Heater Driver
+--
+~ON = 1: uint8_t
+~OFF = 0: uint8_t
+--------------------------------------------------------------
+-initialize(): uint8_t
++ configure()
++ get_heater_status(): uint8_t
+- set_heater_state(): uint8_t
+--
+Controls the temp and soil moisture
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>1240</x>
+      <y>460</y>
+      <w>230</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Water Valve
+--
+~OPEN = 1: uint8_t
+~CLOSED = 0: uint8_t
+--------------------------------------------------------------
+-initialize(): uint8_t
++ get_water_valve_status(): int
+- set_water_valve_state(): int
++ set_container_water_level(): int
++ get_container_water_level(): int
+--
+Responsibility
+Control the status of water valve
+depending on the container_water_level 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>970</x>
+      <y>490</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Water Pump Driver
+--
+~ON = 1: uint8_t
+~OFF = 0: uint8_t
+--------------------------------------------------------------
+-initialize(): uint8_t
++ configure()
++ get_water_pump_status(): int
+- set_water_pump_state(): int
+--
+Using keypad to control the pump 
+status depending on the input 
+humidity/soil moisture 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>470</x>
+      <y>490</y>
+      <w>340</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>Lamp
+--
+~ON = 1: uint8_t
+~OFF = 0: uint8_t
+--------------------------------------------------------------
+- lamp_begin(interface_t *i, uint8_t pin): uint8_t
+- lamp_end(void): void
++ configure(): void
++ get_lamp_status(void): uint8_t
++ get_lamp_value(void): uint8_t
++ get_lamp_state(void): uint8_t
+- set_lamp_state(uint8_t state): uint8_t
+--
+Using keypad to control the pump 
+status depending on the input 
+humidity/soil moisture 
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>190</y>
+      <w>260</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>240</y>
+      <w>60</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>40.0;250.0;40.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>0</y>
+      <w>330</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>
+
+Greenhouse Pump Project
+Actuators</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>90</y>
+      <w>270</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>ambient_app
+--
+~OK = 1: uint8_t
+~ERROR = 0: uint8_t
+~UNINITIALIZED = 2: uint8_t
+------------------------------------------------------------------
++ get_soil_mositure_target_values(): uint8_t
++ get_temp_target_values(): float
++ get_humidity_target_values(): uint8_t
++ get_dht_sensor_status(): uint8_t
++ get_temp_value(): float
++ get_soil_moisture_value(): uint8_t
++ get _humidity_value(): uint8_t
+--
+This app is responsible to control 
+the ambient system 
+(Heater, Lamp, Window, Fan)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1090</x>
+      <y>100</y>
+      <w>340</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>watering_app
+--
+~OK = 1: uint8_t
+~ERROR = 0: uint8_t
+~UNINITIALIZED = 2: uint8_t
+------------------------------------------------------------------
++ get_soil_mositure_target_values(): target_values
++ get_soil_moisture_value(): uint8_t
++ get_container_water_level_target_values(): target_values
+--
+This app is responsible to control 
+the watering system</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>350</y>
+      <w>130</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;110.0;110.0;110.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>200</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>280.0;80.0;280.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1350</x>
+      <y>270</y>
+      <w>30</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1140</x>
+      <y>270</y>
+      <w>30</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>860</x>
+      <y>60</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CAN_bus system</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>590</x>
+      <y>80</y>
+      <w>310</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;290.0;40.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>80</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>160.0;40.0;10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

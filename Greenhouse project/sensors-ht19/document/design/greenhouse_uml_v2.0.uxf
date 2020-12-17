@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>632</x>
+      <y>416</y>
+      <w>288</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>fm_driver
+--
++ flow_meter_driver_init(void): void
++ flow_meter_driver_read(uint16_t *flow): uint8_t status
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>416</y>
+      <w>304</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>dht_driver
+--
++ dht_driver_read_temp_hum(uint8_t *temperaure_value, 
+                           uint8_t *humidity_value): uint8_t status
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>352</x>
+      <y>416</y>
+      <w>264</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>ldr_driver
+--
++ ldr_driver_init(void): uint8_t status
++ ldr_driver_read(uint8_t *ldr_value): uint8_t status
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1272</x>
+      <y>416</y>
+      <w>328</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>water_level_driver
+--
++ driver_water_level_init(void): void
++ water_level_driver_read(uint16_t *resistance): uint8_t status
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>928</x>
+      <y>416</y>
+      <w>320</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>sm_driver
+--
++ soil_moisture_driver_init(void): void
++ soil_moisture_driver_read(uint8_t *moisture): uint8_t status
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1216</x>
+      <y>232</y>
+      <w>320</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>water_level_app
+--
++ water_level_app_update(void)
++ water_level_app_init(void)
+_- water_level_convert(uint16_t water_read): uint8_t water_level_value_
+_- water_level_valid(int water_level_value): bool_
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>552</x>
+      <y>704</y>
+      <w>376</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>bsp_io
+--
++ bsp_pin_mode(uint8_t pin, uint8_t mode): void
++ bsp_analog_read(uint8_t pin): uint16_t analog_read_value
++ bsp_analog_read_resolution(uint8_t bits): void
++ bsp_attach_interrupt(uint8_t pin, void (*function)(void), int mode): void
++ bsp_no_interrupts(void): void
++ bsp_interrupts(void): void
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>656</x>
+      <y>16</y>
+      <w>288</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>sensor_node_main
+--
+
+--
+Responsibilities
+Start the node and update sensor values</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>8</x>
+      <y>232</y>
+      <w>232</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>temperature_humidity_app
+--
++ temperature_humidity_app_update(void)
++ temperature_humidity_app_init(void)
+_- temperature_valid(int temperature): bool_
+_- humidity_valid(int humidity): bool_
+--
+Responsibilities</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>248</x>
+      <y>232</y>
+      <w>288</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>light_intensity_app
+--
++ light_intensity_app_update(void)
++ light_intensity_app_init(void)
+_- light_intensity_valid(int light_value): bool_
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>552</x>
+      <y>232</y>
+      <w>320</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>flow_meter_app
+--
++ flow_meter_app_update(void)
++ flow_meter_app_init(void)
+_- flow_meter_valid(int flow_meter_value): bool_
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>888</x>
+      <y>232</y>
+      <w>320</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>soil_moister_app
+--
++ soil_moister_app_update(void)
++ soil_moister_app_init(void)
+_- flow_meter_valid(int soil_moister_value): bool_
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>152</x>
+      <y>552</y>
+      <w>528</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>640.0;120.0;10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>552</y>
+      <w>24</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>552</y>
+      <w>24</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1040</x>
+      <y>552</y>
+      <w>24</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>552</y>
+      <w>776</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;120.0;950.0;120.0;950.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>704</x>
+      <y>640</y>
+      <w>24</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>360</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>360</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>744</x>
+      <y>360</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>360</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1392</x>
+      <y>360</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>776</x>
+      <y>128</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>104</x>
+      <y>176</y>
+      <w>696</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0;850.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>176</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>696</x>
+      <y>176</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>776</x>
+      <y>176</y>
+      <w>608</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>740.0;70.0;740.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1024</x>
+      <y>176</y>
+      <w>24</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1120</x>
+      <y>16</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>canbus
+--
+
+--
+Responsibilities
+Provide canbus functions</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>224</x>
+      <y>8</y>
+      <w>224</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>common.h
+--
+"define ADC_RESOLUTION"
+"define OKAY"
+"define ERROR"
+"define UNINITIALIZED"
+--
+Responsibilities
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>328</x>
+      <y>96</y>
+      <w>24</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1192</x>
+      <y>112</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>64</y>
+      <w>200</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;230.0;10.0</additional_attributes>
+  </element>
+</diagram>

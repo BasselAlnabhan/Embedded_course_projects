@@ -1,0 +1,2 @@
+rm -rf build && clear && mkdir -p build
+gcc ./test/fm_driver/fm_driver_test.cpp ./lib/fm_driver/fm_driver.cpp -I./test/fm_driver -I./lib/fm_driver -I./lib/bsp -I./include -lunity -o ./build/fm_driver_test && ./build/fm_driver_test

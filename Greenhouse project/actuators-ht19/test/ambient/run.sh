@@ -1,0 +1,2 @@
+clear && mkdir -p ./build && rm -rf ./build/*
+gcc ./test/ambient/test.cpp ./src/ambient/ambient.cpp ./lib/canbus/canbus.cpp ./lib/canbus/can_service.cpp  -I./lib/canbus -I./include  -I./lib/bsp -I./test/ambient -I./src/ambient -lunity -o ./build/test && ./build/test
