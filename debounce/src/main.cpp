@@ -6,7 +6,9 @@
 #define DURATION 100
 #define INTERVAL 10
 
-uint32_t count = 0;
+uint32_t interval = 1U;
+uint32_t countFalling = 0;
+uint32_t countRising = 0;
 uint32_t previousCount = 0;
 Metro timer = Metro(DURATION);
 Bounce pushbutton = Bounce(BUTTON_PIN, INTERVAL);
@@ -20,16 +22,21 @@ void setup()
 
 void loop()
 {
-    if (pushbutton.update())
+    Bounce buttonX = Bounce(BUTTON_PIN, interval);
+    if (timer.check())
     {
-        if (pushbutton.fallingEdge())
+        if (buttonX.update())
         {
-            count++;
+            if (buttonX.fallingEdge())
+            {
+                countFalling++;
+                Serial.printf("button falling is detected %d times\n", countFalling);
+            }
+            else if (buttonX.risingEdge())
+            {
+                countRising++;
+                Serial.printf("button rising is detected %d times\n", countRising);
+            }
         }
-    }
-    else if ((count != previousCount) && timer.check())
-    {
-        Serial.printf("count: %d\n", count);
-        previousCount = count;
     }
 }
